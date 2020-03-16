@@ -1,19 +1,18 @@
 class SessionsController < ApplicationController
   protect_from_forgery with: :exception
   include SessionsHelper
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by_name(params[:session][:name])
-    unless user.nil?
+    if user.nil?
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
+    else
       render html: user.inspect.to_s
       log_in user
       remember user
       redirect_to users_show_path
-    else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
     end
   end
 
