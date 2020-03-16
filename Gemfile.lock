@@ -98,6 +98,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.2-x64-mingw32)
     public_suffix (4.0.3)
     puma (4.3.3)
       nio4r (~> 2.0)
@@ -190,20 +191,21 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  bootsnap (>= 1.4.2)
+  bootsnap
   byebug
   capybara (>= 2.15)
-  jbuilder (~> 2.7)
-  puma (~> 4.1)
+  jbuilder
+  pg
+  puma
   rails (~> 6.0.2, >= 6.0.2.1)
-  sass-rails (>= 6)
+  sass-rails
   selenium-webdriver
-  sqlite3 (~> 1.4)
-  turbolinks (~> 5)
+  sqlite3
+  turbolinks
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
-  webpacker (~> 4.0)
+  webpacker
 
 RUBY VERSION
    ruby 2.6.5p114
