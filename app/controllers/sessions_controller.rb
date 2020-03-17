@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     user = User.find_by_name(params[:session][:name])
     if user.nil?
       flash[:danger] = []
-      flash.now[:danger] << 'Invalid name or user does not exist'
+      flash.now[:danger] << 'Invalid name' unless params[:session][:name].split.empty?
+      flash.now[:danger] << 'Name can not be blank' if params[:session][:name].split.empty?
       render 'new'
     else
       log_in user
