@@ -11,5 +11,5 @@ attr_reader :token
     @token = temp
   end
 
-  validates :name, presence: true
+  validates :name, length: { minimum: 3 }, presence: true
 end

@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_name(params[:session][:name])
     if user.nil?
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash[:danger] = []
+      flash.now[:danger] << 'Invalid name or user does not exist'
       render 'new'
     else
-      # render html: user.inspect.to_s
       log_in user
       remember user
       redirect_to root_path
