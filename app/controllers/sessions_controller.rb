@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     else
-      render html: user.inspect.to_s
+      # render html: user.inspect.to_s
       log_in user
       remember user
       redirect_to users_show_path

@@ -1,0 +1,9 @@
+<header> 
+	<% unless current_user.nil? %>
+		Welcome <%= current_user.name.to_s  %>
+		<br>
+		<%= link_to 'Log out', log_out %>
+	<% else %>
+		<%= link_to 'Log in', log_out %>
+	<% end %>
+</header>

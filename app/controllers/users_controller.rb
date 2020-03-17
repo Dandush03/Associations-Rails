@@ -15,6 +15,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def remember
+  end
+
   def show; end
 
   private

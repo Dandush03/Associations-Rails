@@ -1,8 +1,15 @@
 class User < ApplicationRecord
+attr_reader :token
+
   before_create do
+    self.token = @token
+  end
+
+  def token_generator
     temp = SecureRandom.urlsafe_base64
     temp = Digest::SHA1.hexdigest temp
-    self.token = temp
+    @token = temp
   end
+
   validates :name, presence: true
 end
