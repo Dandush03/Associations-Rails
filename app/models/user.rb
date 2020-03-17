@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-attr_reader :token
+  attr_reader :token
 
   before_create do
     self.token = @token
