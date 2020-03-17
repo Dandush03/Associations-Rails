@@ -1,8 +1,12 @@
-<header> 
+<header>
+	<%= link_to 'home', root_path unless current_page?(root_path) %> 
+	<br>
+	<br>
+	<br>
 	<% unless current_user.nil? %>
 		Welcome <%= current_user.name.to_s  %>
 		<br>
-		<%= link_to 'Log out', log_out && root_path %>
+		<%= link_to 'Log out', singout_path, method: :delete, data: {confirm: 'Are you sure ?'} %>
 	<% else %>
 		<%= link_to 'Log in', login_path %>
 		<br>

@@ -19,7 +19,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    current_user.nil? ? (redirect_to login_path) : (@event = Event.where(:user_id => current_user.id))
+  end
 
   private
 

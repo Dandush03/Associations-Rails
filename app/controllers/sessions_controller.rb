@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   protect_from_forgery with: :exception
   include SessionsHelper
   def new
-    redirect_to root_path unless current_user.nil?
+    redirect_to users_show_path unless current_user.nil?
   end
 
   def create
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     else
       log_in user
       remember user
-      redirect_to root_path
+      redirect_to users_show_path
     end
   end
 
