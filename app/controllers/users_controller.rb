@@ -20,7 +20,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    current_user.nil? ? (redirect_to login_path) : (@event = Event.where(:user_id => current_user.id))
+    if current_user.nil? 
+      (redirect_to login_path) 
+    else
+      @past_events = Event.where("user_id = #{current_user.id} AND event_date > 02/02/2020")
+      @present_evets = Event.where("user_id = #{current_user.id} AND event_date <= 02/02/2020")
+    end
   end
 
   private

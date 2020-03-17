@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'users#show'
+  get 'events/new', to: 'events#new', as: 'events'
+  post 'events/new', to: 'events#create'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'singout', to: 'sessions#destroy'
-  get 'sessions/destroy'
   get 'users/new', to: 'users#new', as: 'users'
   post 'users/new', to: 'users#create'
   get 'users/show'
