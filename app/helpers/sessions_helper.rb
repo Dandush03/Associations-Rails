@@ -26,6 +26,5 @@ module SessionsHelper
     session.delete(:user_id)
     cookies.delete(:token)
     @current_user = nil
-    redirect_to users_show_path
   end
 end
