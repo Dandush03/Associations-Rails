@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.create(event_params)
+    creator = current_user.creators.create(:user_id => @event.user_id, :event_id => @event.id)
     if @event.save
       redirect_to root_path
     else
@@ -34,7 +35,11 @@ class EventsController < ApplicationController
     end
   end
 
-  def destroy
+  def unattend_event
+    creators = current_user.creators.where(:event_id => params[:event_id]).first
+    if creators.destroy
+      redirect_to request.referrer
+    end
   end
 
   def event_params

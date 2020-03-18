@@ -20,11 +20,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.nil? 
-      (redirect_to login_path) 
+    if current_user.nil?
+      (redirect_to login_path)
     else
       @past_events = current_user.events.where('event_date > ?', DateTime.now)
       @present_events = current_user.events.where('event_date <= ?', DateTime.now)
+      @attending = current_user.creators
     end
   end
 

@@ -1,5 +1,2 @@
 <%= render 'show_form', event: @event %>
-<% unless current_user.nil?%>
-	<%= link_to 'Attend', attend_path(:event_id => @event.id), method: :post unless user_attending?%>
-	<%= 'sjpw link to un attend' if user_attending?%>
-<% end %>
+<%= render 'assitance', event: @event %>

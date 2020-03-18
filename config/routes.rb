@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   post 'users/new', to: 'users#create'
   get 'users/show'
   post 'attend', to: 'events#attend_event'
+  delete 'attend', to: 'events#unattend_event'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
