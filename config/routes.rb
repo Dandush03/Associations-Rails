@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#show'
+  root 'events#index'
   get 'events/new', to: 'events#new', as: 'events'
   post 'events/new', to: 'events#create'
   get 'login', to: 'sessions#new'
@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'users/new', to: 'users#new', as: 'users'
   post 'users/new', to: 'users#create'
   get 'users/show'
+  post 'attend', to: 'events#attend_event'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

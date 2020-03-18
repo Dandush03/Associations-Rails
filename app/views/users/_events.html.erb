@@ -1,8 +1,10 @@
 <h1>Events to Come</h1>
 <% @present_events.each do |e| %>
 	<ul>
-		<li><%= e.location %></li>
-		<li><%= e.event_date %></li>
+		<li>Owner: <%= User.find_by_id(e.user_id).name %></li>
+		<li>Location: <%= e.location %></li>
+		<li>Date: <%= e.event_date %></li>
+		<%= link_to 'Attend', attend_path(@id, :event_id => e.id), method: :post unless current_user.nil? || e.user_id == current_user.id%> 
 	</ul>
 <% end %>
 <br>
@@ -10,7 +12,9 @@
 <h1>Pasts Events</h1>
 <% @past_events.each do |e| %>
 	<ul>
-		<li><%= e.location %></li>
-		<li><%= e.event_date %></li>
+		<li>Owner: <%= User.find_by_id(e.user_id).name %></li>
+		<li>Location: <%= e.location %></li>
+		<li>Date: <%= e.event_date %></li>
 	</ul>
 <% end %>
+
