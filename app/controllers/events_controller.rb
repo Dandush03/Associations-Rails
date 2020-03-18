@@ -29,7 +29,9 @@ class EventsController < ApplicationController
 
   def attend_event
     creator = Creator.new(:user_id => current_user.id, :event_id => params[:event_id])
-    creator.save
+    if creator.save
+      redirect_to request.referrer
+    end
   end
 
   def destroy
