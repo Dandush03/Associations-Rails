@@ -7,6 +7,8 @@
 		Welcome <%= current_user.name.to_s  %>
 		<br>
 		<%= link_to 'Log out', singout_path, method: :delete, data: {confirm: 'Are you sure ?'} %>
+		<br>
+		<%= link_to 'New event', events_new_path unless  current_page?(events_new_path) %>
 	<% else %>
 		<%= link_to 'Log in', login_path %>
 		<br>
