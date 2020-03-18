@@ -63,4 +63,3 @@ Feel free to check the [issues page](./issues/).
 - Twitter: [@d_laloush](https://twitter.com/d_laloush)
 
 Give a ⭐️ if you like this project!
-
