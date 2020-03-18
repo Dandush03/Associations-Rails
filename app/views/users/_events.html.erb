@@ -1,5 +1,5 @@
-<% @present_evets.each do |e| %>
-	<h1>Events to Come</h1>
+<h1>Events to Come</h1>
+<% @present_events.each do |e| %>
 	<ul>
 		<li><%= e.location %></li>
 		<li><%= e.event_date %></li>
@@ -7,8 +7,8 @@
 <% end %>
 <br>
 <br>
+<h1>Pasts Events</h1>
 <% @past_events.each do |e| %>
-	<h1>Pasts Events</h1>
 	<ul>
 		<li><%= e.location %></li>
 		<li><%= e.event_date %></li>
