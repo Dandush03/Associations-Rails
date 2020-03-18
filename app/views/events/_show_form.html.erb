@@ -1,0 +1,11 @@
+<h1>Event Description</h1>
+<p>Ower: <%= User.find(@event.user_id).name %> </p>
+<p>Description: <%= @event.description%></p>
+<p>Location: <%= @event.location%></p>
+<p>Date: <%= @event.event_date%></p>
+<h2>Attending</h2>
+<ul>
+	<% @attending.each do |user| %>
+		<li><%= User.find(user.user_id).name %></li>
+	<% end %>
+</ul>

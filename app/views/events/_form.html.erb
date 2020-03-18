@@ -1,6 +1,11 @@
 <%= form_for @event do |event| %>
-	<%= event.text_field :name, :value => current_user.name%>
+	<%= event.label :name, :value => current_user.name%>
+	<br>
 	<%= event.text_field :location, :placeholder => 'Location'%>
+	<br>
+	<%= event.text_field :description, :placeholder => 'description'%>
+	<br>
 	<%= event.date_field :event_date %>
+	<br>
 	<%= event.submit 'submit' %>
 <%end%>

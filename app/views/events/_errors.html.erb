@@ -1,0 +1,7 @@
+<% if @event.errors.any? %>
+	<% @event.errors.full_messages.each do |e| %>
+		<li><%= e %></li>
+	<% end %>
+	<br>
+	<br>
+<% end %>

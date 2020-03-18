@@ -4,6 +4,7 @@
 		<li>Owner: <%= User.find_by_id(e.user_id).name %></li>
 		<li>Location: <%= e.location %></li>
 		<li>Date: <%= e.event_date %></li>
+		<%= link_to 'More Info', event_show_path(e)%>
 		<%= link_to 'Attend', attend_path(:event_id => e.id), method: :post unless current_user.nil? || e.user_id == current_user.id %>
 	</ul>
 <% end %>

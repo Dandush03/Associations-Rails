@@ -6,16 +6,25 @@ class EventsController < ApplicationController
   end
 
   def index
-    @past_events = Event.where('event_date > ?', DateTime.now)
-    @present_events = Event.where('event_date <= ?', DateTime.now)
+    @past_events = Event.where('event_date < ?', DateTime.now)
+    @present_events = Event.where('event_date >= ?', DateTime.now)
   end
 
   def create
-    if current_user.events.create(event_params)
+    @event = current_user.events.create(event_params)
+    if @event.save
       redirect_to root_path
     else
-      render html: @event.errors.inspect.to_s
+      respond_to do |f|
+        f.html { render :new }
+        f.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
+    @attending = @event.creators
   end
 
   def attend_event
@@ -27,6 +36,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:location, :event_date)
+    params.require(:event).permit(:location, :event_date, :description)
   end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'events#index'
   get 'events/new', to: 'events#new', as: 'events'
   post 'events/new', to: 'events#create'
+  get 'events/show/:id/', to: 'events#show', as: 'event_show'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'singout', to: 'sessions#destroy'
