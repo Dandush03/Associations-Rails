@@ -10,35 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_204127) do
-
-  create_table "creators", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_creators_on_event_id"
-    t.index ["user_id"], name: "index_creators_on_user_id"
+ActiveRecord::Schema.define(version: 20_200_317_204_127) do
+  create_table 'creators', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.integer 'event_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['event_id'], name: 'index_creators_on_event_id'
+    t.index ['user_id'], name: 'index_creators_on_user_id'
   end
 
-  create_table "events", force: :cascade do |t|
-    t.datetime "event_date"
-    t.string "location"
-    t.string "description"
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
+  create_table 'events', force: :cascade do |t|
+    t.datetime 'event_date'
+    t.string 'location'
+    t.string 'description'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_events_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "token"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'token'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key "creators", "events"
-  add_foreign_key "creators", "users"
-  add_foreign_key "events", "users"
+  add_foreign_key 'creators', 'events'
+  add_foreign_key 'creators', 'users'
+  add_foreign_key 'events', 'users'
 end
