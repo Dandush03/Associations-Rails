@@ -6,8 +6,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    @past_events = Event.where('event_date < ?', DateTime.now)
-    @present_events = Event.where('event_date >= ?', DateTime.now)
+    @past_events = Event.previous
+    @present_events = Event.future
   end
 
   def create

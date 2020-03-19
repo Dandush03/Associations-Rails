@@ -23,8 +23,8 @@ class UsersController < ApplicationController
     if current_user.nil?
       (redirect_to login_path)
     else
-      @past_events = current_user.events.where('event_date < ?', DateTime.now)
-      @present_events = current_user.events.where('event_date >= ?', DateTime.now)
+      @past_events = current_user.events.previous
+      @present_events = current_user.events.future
       @attending = current_user.event_qries
     end
   end

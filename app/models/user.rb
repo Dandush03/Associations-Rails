@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_reader :token
+  # attr_reader :token
   has_many :event_qries
   has_many :events, foreign_key: :creator_id
 
