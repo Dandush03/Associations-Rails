@@ -8,7 +8,9 @@
 		<%= render 'events/assitance', event: @event %>
 	<% end %>
 <% end %>
-<h3>Past Events</h3>
+<% unless !@past_events.nil? %>
+	<h3>Past Events</h3>
+<% end %>
 <% @attending.each do |attending| %>
 	<%event(attending)%>
 	<% if @event.event_date < DateTime.now %>

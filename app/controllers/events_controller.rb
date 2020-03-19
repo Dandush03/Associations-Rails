@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      current_user.event_qries.create(:event_id => @event.id)
+      current_user.event_qries.create(event_id: @event.id)
       redirect_to root_path
     else
       respond_to do |f|
