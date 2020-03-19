@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_reader :token
-  has_many :creators
-  has_many :events
+  has_many :event_qries
+  has_many :events, foreign_key: :creator_id
 
   before_create do
     self.token = @token

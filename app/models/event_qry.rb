@@ -1,4 +1,4 @@
-class Creator < ApplicationRecord
+class EventQry < ApplicationRecord
   belongs_to :user
   belongs_to :event
 end
