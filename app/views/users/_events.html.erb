@@ -1,8 +1,8 @@
-<h1>Events to Come</h1>
+<h1><%= 'Events to Come'%></h1>
 <% @present_events.each do |e| %>
 	<% @event = e %>
 	<ul>
-		<li>Owner: <%= User.find_by_id(e.user_id).name %></li>
+		<li>Owner: <%= User.find_by_id(e.creator_id).name %></li>
 		<li>Location: <%= e.location %></li>
 		<li>Date: <%= e.event_date %></li>
 		<%= link_to 'More Info', event_show_path(e)%>
@@ -11,10 +11,10 @@
 <% end %>
 <br>
 <br>
-<h1>Pasts Events</h1>
+<h1><%= 'Pasts Events'%></h1> 
 <% @past_events.each do |e| %>
 	<ul>
-		<li>Owner: <%= User.find_by_id(e.user_id).name %></li>
+		<li>Owner: <%= User.find_by_id(e.creator_id).name %></li>
 		<li>Location: <%= e.location %></li>
 		<li>Date: <%= e.event_date %></li>
 		<%= link_to 'More Info', event_show_path(e)%>

@@ -11,9 +11,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.create(event_params)
-    current_user.creators.create(user_id: @event.user_id, event_id: @event.id)
+    @event = current_user.events.build(event_params)
     if @event.save
+      current_user.event_qries.create(:event_id => @event.id)
       redirect_to root_path
     else
       respond_to do |f|
@@ -25,16 +25,16 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @attending = @event.creators
+    @attending = @event.event_qries
   end
 
   def attend_event
-    creator = Creator.new(user_id: current_user.id, event_id: params[:event_id])
+    creator = EventQry.new(user_id: current_user.id, event_id: params[:event_id])
     redirect_to request.referrer if creator.save
   end
 
   def unattend_event
-    creators = current_user.creators.where(event_id: params[:event_id]).first
+    creators = current_user.event_qries.where(event_id: params[:event_id]).first
     redirect_to request.referrer if creators.destroy
   end
 

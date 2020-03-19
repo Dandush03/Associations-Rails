@@ -1,5 +1,5 @@
 <h1>Event Description</h1>
-<p>Ower: <%= User.find(@event.user_id).name %> </p>
+<p>Ower: <%= User.find(@event.creator_id).name %> </p>
 <p>Description: <%= @event.description%></p>
 <p>Location: <%= @event.location%></p>
 <p>Date: <%= @event.event_date%></p>

@@ -1,5 +1,5 @@
 <% if @event.event_date >= DateTime.now %>
-<% unless current_user.nil? || @event.user_id == current_user.id%>
+<% unless current_user.nil? || @event.creator_id == current_user.id%>
 	<%= link_to 'Attend', attend_path(:event_id => @event.id), method: :post unless user_attending?%>
 	<%= link_to 'Un-Attend', attend_path(:event_id => @event.id), method: :delete if user_attending?%>
 <% end %>

@@ -2,7 +2,7 @@
 <% @attending.each do |attending| %>
 	<%event(attending)%>
 	<% if @event.event_date >= DateTime.now %>
-		<li>Owner: <%= User.find_by_id(@event.user_id).name %></li>
+		<li>Owner: <%= User.find_by_id(@event.creator_id).name %></li>
 		<li>Location: <%= @event.location %></li>
 		<li>Date: <%= @event.event_date %></li>
 		<%= render 'events/assitance', event: @event %>
@@ -12,7 +12,7 @@
 <% @attending.each do |attending| %>
 	<%event(attending)%>
 	<% if @event.event_date < DateTime.now %>
-		<li>Owner: <%= User.find_by_id(@event.user_id).name %></li>
+		<li>Owner: <%= User.find_by_id(@event.creator_id).name %></li>
 		<li>Location: <%= @event.location %></li>
 		<li>Date: <%= @event.event_date %></li>
 	<% end %>
