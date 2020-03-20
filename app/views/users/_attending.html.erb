@@ -1,0 +1,21 @@
+<h3>Up-Comming Events</h3>
+<% @attending.each do |attending| %>
+	<%event(attending)%>
+	<% if @event.event_date >= DateTime.now %>
+		<li>Owner: <%= User.find_by_id(@event.creator_id).name %></li>
+		<li>Location: <%= @event.location %></li>
+		<li>Date: <%= @event.event_date %></li>
+		<%= render 'events/assitance', event: @event %>
+	<% end %>
+<% end %>
+<% unless !@past_events.nil? %>
+	<h3>Past Events</h3>
+<% end %>
+<% @attending.each do |attending| %>
+	<%event(attending)%>
+	<% if @event.event_date < DateTime.now %>
+		<li>Owner: <%= User.find_by_id(@event.creator_id).name %></li>
+		<li>Location: <%= @event.location %></li>
+		<li>Date: <%= @event.event_date %></li>
+	<% end %>
+<% end %>

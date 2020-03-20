@@ -1,0 +1,23 @@
+<header>
+	<nav>
+		<ul>
+			<% unless current_page?(root_path) %>
+				<li><%= link_to 'Home', root_path  %></li>
+			<% end %>
+			<% unless current_page?(users_show_path) || current_user.nil? %>
+				<li><%= link_to 'My Events', users_show_path  %></li>
+			<% end %>
+		</ul>
+	</nav>
+	<% unless current_user.nil? %>
+		Welcome <%= current_user.name.to_s  %>
+		<br>
+		<%= link_to 'Log out', singout_path, method: :delete, data: {confirm: 'Are you sure ?'} %>
+		<br>
+		<%= link_to 'New event', events_new_path unless  current_page?(events_new_path) %>
+	<% else %>
+		<%= link_to 'Log in', login_path unless current_page?(login_path)%>
+		<br>
+		<%= link_to 'Sing Up', users_path unless current_page?(users_path) %>
+	<% end %>
+</header>
