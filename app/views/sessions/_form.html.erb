@@ -1,0 +1,13 @@
+<h1>Log in</h1>
+
+<div>
+  <div>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.text_field :name %>
+
+      <%= f.submit "Log in" %>
+    <% end %>
+
+  </div>
+</div>

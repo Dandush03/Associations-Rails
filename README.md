@@ -1,7 +1,8 @@
-# Basic Rails Forms [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/Dandush03/capstone-build-linter)
+# Associations Ruby on Rails
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/Dandush03/capstone-build-linter)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
-> 6th collaborative microverse project.
+> This is the seven collaborative microverse project of the rails section
 
 ---
 
@@ -19,7 +20,6 @@
 ## Built With
 
 - rails
-- Heroku
 - GitHub
 - vim
 - VSCode
@@ -57,9 +57,10 @@ Feel free to check the [issues page](./issues/).
 
 **Danie Laloush**
 
-- Portafolio: [dlaloush.me](https://dlaloush.me) (Comming Soon)
+- Portafolio: [dlaloush.me](https://dlaloush.me)
 - Linkedin: [Daniel Laloush](https://www.linkedin.com/in/daniel-laloush-0a7331a9)
 - Github: [@Dandush03](https://github.com/Dandush03)
 - Twitter: [@d_laloush](https://twitter.com/d_laloush)
 
 Give a ⭐️ if you like this project!
+
